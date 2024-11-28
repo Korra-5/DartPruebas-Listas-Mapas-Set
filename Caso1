@@ -1,0 +1,24 @@
+void main() {
+  List<String> generos = [];
+  String nuevoGenero = "Trap"; //Este es el intento de meter un genero que ya esta
+
+  void agregarGenero(String genero) {
+    if (generos.contains(genero)) {
+      print("Error: $genero ya está en la lista.");
+    } else if (generos.length >= 5) {
+      print("Error: No puedes añadir más de 5 géneros, $genero queda excluido");
+    } else {
+      generos.add(genero);
+      print("$genero ha sido añadido.");
+    }
+  }
+
+  agregarGenero("Reggaeton");
+  agregarGenero("Rap");
+  agregarGenero("Trap");
+  agregarGenero("Pop");
+  agregarGenero("Rock");
+  agregarGenero("Jazz"); // Este es el intento de añadir un 6 genero
+
+  print("Tus géneros favoritos: $generos");
+}
