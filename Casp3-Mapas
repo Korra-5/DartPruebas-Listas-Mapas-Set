@@ -1,0 +1,38 @@
+void main() {
+  Map<String, double> estudiantes = {};
+
+  void agregarEstudiante(String estudiante, double calificacion) {
+    if (!estudiantes.containsKey(estudiante)) {
+      estudiantes[estudiante] = calificacion;
+      print("Estudiante $estudiante agregado con calificación $calificacion.");
+    } else {
+      print("El estudiante $estudiante ya existe.");
+    }
+  }
+
+  void cambiarCalificacion(String estudiante, double nuevaCalificacion) {
+    if (estudiantes.containsKey(estudiante)) {
+      estudiantes[estudiante] = nuevaCalificacion;
+      print("Calificación de $estudiante actualizada a $nuevaCalificacion.");
+    } else {
+      print("El estudiante $estudiante no existe.");
+    }
+  }
+
+  void consultarEstudiante() {
+    if (estudiantes.isEmpty) {
+      print("No hay estudiantes registrados.");
+    } else {
+      print("Lista de estudiantes y sus calificaciones:");
+      estudiantes.forEach((estudiante, calificacion) {
+        print("$estudiante: $calificacion");
+      });
+    }
+  }
+
+  agregarEstudiante("Juan", 8.5);
+  agregarEstudiante("María", 9.0);
+  cambiarCalificacion("Juan", 3.5);
+  cambiarCalificacion("Pedro", 7.5); // Comprobacion de actualizar un estudiante no existente
+  consultarEstudiante();
+}
