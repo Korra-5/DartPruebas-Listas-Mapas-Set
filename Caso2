@@ -1,0 +1,40 @@
+void main() {
+  Set Tareas={};
+  Set TareasNoCompletadas={};
+  
+void agregarTarea(String Tarea){
+  if(!Tareas.contains(Tarea)){
+     Tareas.add(Tarea);
+ TareasNoCompletadas.add(Tarea);
+  print("Tarea '$Tarea' añadida");
+  }else{
+      print("Tarea '$Tarea' ya fue añadida anteriormente");
+  }
+}
+  
+  void completarTarea(String Tarea){
+    if (Tareas.contains(Tarea)){
+    TareasNoCompletadas.remove(Tarea);
+    print("Tarea '$Tarea' completada");
+    }else{
+    print("La tarea '$Tarea' no existe");
+    }
+  }
+  
+void consultarTareas(){
+  print("Tareas por completar: ${Tareas.intersection(TareasNoCompletadas)}");
+}
+  
+    
+  agregarTarea("Bases de datos");
+  agregarTarea("Programacion");  
+  agregarTarea("Calculo");
+  agregarTarea("Calculo"); //Comprobacion de que no se pueda añadir una tarea ya existente
+
+  completarTarea("Integrales"); //Comprobacion de que no se pueda completar una tarea no existente
+  completarTarea("Programacion");
+  
+  consultarTareas();
+  
+}
+  
